@@ -1,0 +1,11 @@
+.responsive{
+    height: auto;
+    padding: 1em;
+}
+
+.img-centre{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
