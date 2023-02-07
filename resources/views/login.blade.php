@@ -20,7 +20,7 @@
                 <div class="signup-form">
                     <form action="{{route('admin.login')}}" class="mt-5 border p-4 bg-light shadow" method="POST">
                         @csrf
-                        <h4 class="mb-5 text-secondary">Login into UETCL SYSTEM</h4>
+                        <h4 class="mb-5 text-secondary">Login into UETCL SECURITY SYSTEM</h4>
                         @if (Session::get('fail'))
                            <div class="alert alert-danger">
                             {{Session::get('fail')}}

@@ -72,15 +72,15 @@ class Master extends Controller
                             return back()->with('fail','Account de-activated');    
                         } 
 
-            $userInfo = Admin::where('email','=',$request->email)->first();
-            if(Hash::check($request->password,$userInfo->password))
+                $userInfo = Admin::where('email','=',$request->email)->first();
+                if(Hash::check($request->password,$userInfo->password))
                     {  
 
                         $Admin_status =  $userInfo['Admin_status'];
                        if($Admin_status == 'normal')
                        {
                              $request->session()->put('LoggedUser',$userInfo->id); 
-                             return redirect('Admin.dashboard');
+                             return redirect('dashboard');
                        }
                         else{
                             
@@ -93,4 +93,22 @@ class Master extends Controller
                     return back()->with('fail','incorrect email or password'); 
                     }
         }
+
+        public function dashboard()
+        {
+            $data=['LoggedUserInfo'=>Admin::where('id','=',session('LoggedUser'))->first()];
+
+            return view('Adminpages.Dashboard');
+        }
+
+        public function logout()
+        {
+            if(session()->has('LoggedUser'))
+            {
+                session()->pull('LoggedUser');
+                return redirect('/');
+            }
+        }
+
+        
 }
