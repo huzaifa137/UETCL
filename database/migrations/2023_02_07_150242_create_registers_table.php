@@ -19,11 +19,11 @@ class CreateRegistersTable extends Migration
             $table->text('investigation_officer');
             $table->bigInteger('police_case_ref');
             $table->bigInteger('Inter_ref_number');
-            $table->text('Type of case');
-            $table->text('status');
+            $table->text('Transmission_Line');
+            $table->text('Case_Status');
             $table->text('particulars_of_the_case');
             $table->text('Brief_facts_of_the_case');
-            $table->text('password');
+            $table->Date('Date');
             $table->timestamps();
         });
     }

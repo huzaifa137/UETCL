@@ -13,28 +13,32 @@ use App\Http\Controllers\Master;
 |
 */
 
-
-
-
         
     Route::group(['middleware'=>'AuthCheck'],function (){
         Route::get('/',[Master::class,'login'])->name('login');
         Route::get('register',[Master::class,'register'])->name('register');
         Route::get('dashboard',[Master::class,'dashboard'])->name('dashboard');
+        Route::get('AllRecords',[Master::class,'case_records'])->name('AllBooks');
+        Route::get('AllOfficers',[Master::class,'officer_records'])->name('AllOfficers');
+        Route::get('delete/{id}',[Master::class,'delete']);
+        Route::get('deleteOfficer/{id}',[Master::class,'delete_officer']);
+        Route::get('Edit/{id}',[Master::class,'updateRecord']);
+        Route::get('EditOfficer/{id}',[Master::class,'update_Officer_Record']);
+        Route::get('details/{id}',[Master::class,'details'])->name('case.details');
+        Route::get('auth.logout',[Master::class,'logout'])->name('auth.logout');
+        Route::get('AddRecord',[Master::class,'AddRecord'])->name('AddBook');
+        Route::get('Pending',[Master::class,'Pending_records'])->name('pending');
+        Route::get('EditOfficer',[Master::class,'update_Officer_Record'])->name('EditOfficer');
+        Route::view('EditBook','Adminpages.EditBook')->name('EditBook');
+        Route::view('AddOfficer','Adminpages.AddOfficer')->name('AddOfficer');
     });
     
-
+    
     Route::post('admin.add',[Master::class,'Add_Admin'])->name('admin.add');
     Route::post('admin.login',[Master::class,'Admin_login'])->name('admin.login');
+    Route::post('add.record',[Master::class,'Add_Record'])->name('add.record');
+    Route::post('update.record',[Master::class,'update'])->name('update.record');
+    Route::post('add.officer',[Master::class,'Add_officer'])->name('add.officer');
+    Route::post('update.officer',[Master::class,'update_officer'])->name('update.officer');
 
-    Route::get('auth.logout',[Master::class,'logout'])->name('auth.logout');
     
-    
-    Route::view('AddBook','Adminpages.AddBook')->name('AddBook');
-    Route::view('EditBook','Adminpages.EditBook')->name('EditBook');
-    
-    Route::view('BookDetails','Adminpages.BookDetails')->name('BookDetails');
-    Route::get('delete/{id}',[BookController::class,'delete']);
-    Route::get('Edit/{id}',[BookController::class,'updateRecord']);
-    Route::get('AllBooks',[BookController::class,'show'])->name('AllBooks');
-    Route::get('contact-info',[BookController::class,'contact_info'])->name('contact-info');

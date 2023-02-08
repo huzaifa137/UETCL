@@ -1,4 +1,4 @@
-﻿@extends('layouts.header_footer_navbar')
+@extends('layouts.header_footer_navbar')
 @section('content')
 <div class="content-body">
 	<!-- row -->
@@ -38,31 +38,23 @@
 									<table id="example3" class="display" style="min-width: 845px">
 										<thead>
 											<tr>
-												<th>Police Station</th>
-												<th>Investigation Officer</th>
-												<th>P_Case_Ref</th>
-												<th>I_Case_Ref</th>
-												<th>Transmission line</th>
-												<th>Case Status</th>
-												<th>Date</th>
+												<th>Firstname</th>
+												<th>Lastname</th>
+												<th>Role</th>
+												<th>Department</th>
 												<th>Edit</th>
 											</tr>
 										</thead>
 										<tbody>
 											@foreach ($data as $info)
 											<tr>
-												<td>{{$info->police_station}}</td>
-												<td>{{$info->investigation_officer}}</td>
-												<td>{{$info->police_case_ref}}</td>
-												<td>{{$info->Inter_ref_number}}</td>
-												<td>{{$info->Transmission_Line}}</td>
-												<td>{{$info->Case_Status}}</td>
-												<td>{{$info->Date}}</td>
-												
+												<td>{{$info->Firstname}}</td>
+												<td>{{$info->Lastname}}</td>
+												<td>{{$info->Role}}</td>
+												<td>{{$info->Department}}</td>
 												<td>
-													<a href="{{'Edit/'.$info->id}}" class="btn btn-sm btn-primary" onclick="return confirm('Are you sure you want to edit this case ?')"><i class="la la-pencil"></i></a>
-													<a href="{{'delete/'.$info->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this case ?')"><i class="la la-trash-o"></i></a>
-													<a href="{{'details/'.$info->id}}" class="btn btn-sm btn-success"><i class="la la-eye"></i></a>
+													<a href="{{'EditOfficer/'.$info->id}}" class="btn btn-sm btn-primary" onclick="return confirm('Are you sure you want to edit this case ?')"><i class="la la-pencil"></i></a>
+													<a href="{{'deleteOfficer/'.$info->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this case ?')"><i class="la la-trash-o"></i></a>
 												</td>												
 											</tr>
 											@endforeach

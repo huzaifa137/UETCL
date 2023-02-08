@@ -33,7 +33,7 @@
                         <h5 class="card-title">Basic Info</h5>
                     </div>
                     <div class="card-body">
-                        <form action="#" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('add.record')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -48,10 +48,10 @@
                                     <div class="form-group">
                                         <label class="form-label" style="color:black;">Investigation officer</label>
                                         <select class="form-control" name="Investigation_officer" value="{{old('Investigation_officer')}}">
-                                            <option value="">Officer</option>
-                                            <option value="Kato">Kato</option>
-                                            <option value="Ibra">Ibra</option>
-                                            <option value="Adam">Adam</option>
+                                            <option value="">Select Officer</option>
+                                            @foreach ($officers as $officer)
+                                            <option value="{{$officer->Firstname}}">{{$data=$officer->Firstname}}</option>
+                                            @endforeach
                                         </select>
                                         <span style="color: red"> @error('Investigation_officer'){{$message}} @enderror</span>
                                     </div>
@@ -76,7 +76,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label" style="color:black;">Transmission Line</label>
-                                        <input type="number" name="Transmission_Line" class="form-control" value="{{old('Transmission_Line')}}">
+                                        <input type="text" name="Transmission_Line" class="form-control" value="{{old('Transmission_Line')}}">
                                         <span style="color: red"> @error('Transmission_Line'){{$message}} @enderror</span>
                                     </div>
                                 </div>
@@ -87,6 +87,7 @@
                                         <select class="form-control" name="Case_Status" value="{{old('Case_Status')}}">
                                             <option value="Open">Open</option>
                                             <option value="Close">Close</option>
+                                            <option value="court">Court</option>
                                         </select>
                                         <span style="color: red"> @error('Case_Status'){{$message}} @enderror</span>
                                     </div>
@@ -95,7 +96,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label" style="color:black;">particulars of the case</label>
-                                        <textarea class="form-control" rows="5"></textarea>
+                                        <textarea class="form-control" rows="5" name="particulars_of_the_case"></textarea>
                                         <span style="color: red"> @error('particulars_of_the_case'){{$message}} @enderror</span>
                                     </div>
                                 </div>
@@ -103,7 +104,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label" style="color:black;">Brief facts of the case</label>
-                                        <textarea class="form-control" rows="5"></textarea>
+                                        <textarea class="form-control" rows="5" name="Brief_facts_of_the_case"></textarea>
                                         <span style="color: red"> @error('Brief_facts_of_the_case'){{$message}} @enderror</span>
                                     </div>
                                 </div>

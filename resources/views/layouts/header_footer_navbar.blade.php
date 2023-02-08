@@ -113,10 +113,24 @@
 							<span class="nav-text">Records</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="{{route('AllBooks')}}">View Records</a></li>
-                            <li><a href="{{route('AddBook')}}">Add Records</a></li>
+                            <li><a href="{{route('AddBook')}}">Add a Case</a></li>
+                            <li><a href="{{route('AddOfficer')}}">Add an Officer</a></li>
+                            <li><a href="{{route('AllBooks')}}">View Case Records</a></li>
+                            <li><a href="{{route('AllOfficers')}}">View officer Records</a></li>
                         </ul>
                     </li>
+
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-book"></i>
+                        <span class="nav-text">Court</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="{{route('pending')}}">Pending</a></li>
+                        {{-- <li><a href="{{route('AddOfficer')}}">Add an Officer</a></li>
+                        <li><a href="{{route('AllBooks')}}">View Case Records</a></li>
+                        <li><a href="{{route('AllOfficers')}}">View officer Records</a></li> --}}
+                    </ul>
+                </li>
                     
 					{{-- <li><a class="has-arrow" href="{{route('contact-info')}}" aria-expanded="false">
                         <i class="la la-phone"></i>
