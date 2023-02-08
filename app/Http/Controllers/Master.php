@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\register;
+use App\Models\court;
 use App\Models\officer;
 use App\Models\admin;
 
@@ -294,7 +295,61 @@ class Master extends Controller
         public function Pending_records()
         {
             $pendings = register::where('Case_Status','court')->get();
+            return view('Adminpages.pending',compact('pendings',$pendings));
+        }
 
-             return view('Adminpages.pending',compact('pendings',$pendings));
+        public function Update_case_status($id,Request $request)
+        {   
+            $info = register::find($id);
+            return view('Adminpages.case_status',compact('info',$info));
+        }
+
+        public function update_status(Request $request)
+        {
+              $update_id = register::find($request->id);
+              $data = $update_id->id;
+
+            $request->validate([
+                'CRB'=>'required',
+                'Police_station_case_Ref'=>'required',
+                'Case_parties_UG_vs'=>'required',
+                'Due_Date'=>'required',
+                'Police__IOs'=>'required',
+                'Witnesses'=>'required',
+                'Evidence_on_Record'=>'required',
+                'Case_facilitation'=>'required',
+            ]);
+
+            $post = new court();
+
+            $post->CRB = $request->CRB;
+            $post->Police_station_case_Ref = $request->Police_station_case_Ref;
+            $post->Case_parties_UG_vs = $request->Case_parties_UG_vs;
+            $post->Due_Date = $request->Due_Date;
+            $post->Police__IOs = $request->Police__IOs;
+            $post->Witnesses = $request->Witnesses;
+            $post->Evidence_on_Record = $request->Evidence_on_Record;
+            $post->Case_facilitation = $request->Case_facilitation;
+            $new_status = $request->Status;
+            $post->Status = $new_status;
+
+            $save=$post->save();
+
+            $update_query=register::where('id',$data)->update(['Case_Status'=>$new_status]);
+
+            if($save)
+            {   
+                return redirect()->back()->with('success','Case has been recorded and updated successfully');
+            }
+            else{
+                return "Case has not been recorded and updated";
+            }
+        }
+
+        public function court_case_status()
+        {
+            $data = court::all();
+
+            return view('Adminpages.CourtStatus',compact('data',$data));
         }
 }

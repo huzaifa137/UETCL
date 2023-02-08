@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/images">
-    <title>Document</title>
+    <title>..:: UETCL ::..</title>
 </head>
 <body>
     <div class="img-centre">

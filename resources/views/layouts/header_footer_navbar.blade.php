@@ -121,24 +121,14 @@
                     </li>
 
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-book"></i>
+                        <i class="la la-pencil"></i>
                         <span class="nav-text">Court</span>
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="{{route('pending')}}">Pending</a></li>
-                        {{-- <li><a href="{{route('AddOfficer')}}">Add an Officer</a></li>
-                        <li><a href="{{route('AllBooks')}}">View Case Records</a></li>
-                        <li><a href="{{route('AllOfficers')}}">View officer Records</a></li> --}}
+                        <li><a href="{{route('cases.status')}}">Case Status In Court</a></li>
                     </ul>
                 </li>
-                    
-					{{-- <li><a class="has-arrow" href="{{route('contact-info')}}" aria-expanded="false">
-                        <i class="la la-phone"></i>
-                        <span class="nav-text">Contact_us Info</span>
-                    </a> --}}
-                </li>
-                
-                
 				</ul>
             </div>
         </div>

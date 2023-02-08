@@ -28,7 +28,8 @@ use App\Http\Controllers\Master;
         Route::get('auth.logout',[Master::class,'logout'])->name('auth.logout');
         Route::get('AddRecord',[Master::class,'AddRecord'])->name('AddBook');
         Route::get('Pending',[Master::class,'Pending_records'])->name('pending');
-        Route::get('EditOfficer',[Master::class,'update_Officer_Record'])->name('EditOfficer');
+        Route::get('status/{id}',[Master::class,'Update_case_status']);
+        Route::get('cases.status',[Master::class,'court_case_status'])->name('cases.status');
         Route::view('EditBook','Adminpages.EditBook')->name('EditBook');
         Route::view('AddOfficer','Adminpages.AddOfficer')->name('AddOfficer');
     });
@@ -40,5 +41,6 @@ use App\Http\Controllers\Master;
     Route::post('update.record',[Master::class,'update'])->name('update.record');
     Route::post('add.officer',[Master::class,'Add_officer'])->name('add.officer');
     Route::post('update.officer',[Master::class,'update_officer'])->name('update.officer');
+    Route::post('update.status',[Master::class,'update_status'])->name('update.status');
 
     

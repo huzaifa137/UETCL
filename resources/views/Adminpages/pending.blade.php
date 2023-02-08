@@ -58,7 +58,8 @@
 														<li class="list-group-item px-0 d-flex justify-content-between">
 															<span class="mb-0">Case Status:</span><strong>{{$pending->Case_Status}}</strong></li>
 													</ul>
-													<a class="btn btn-outline-primary btn-rounded mt-3 px-4" href="staff-profile.html">Enter court information</a>
+													{{-- <a href="{{'Edit/'.$info->id}}" class="btn btn-sm btn-primary" onclick="return confirm('Are you sure you want to edit this case ?')"><i class="la la-pencil"></i></a> --}}
+													<a class="btn btn-outline-primary btn-rounded mt-3 px-4" href="{{'status/'.$pending->id}}">Enter court information</a>
 												</div>
 											</div>
 										</div>
