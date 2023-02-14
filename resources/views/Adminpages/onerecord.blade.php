@@ -1,4 +1,4 @@
-﻿@extends('layouts.header_footer_navbar')
+@extends('layouts.header_footer_navbar')
 @section('content')
 <div class="content-body">
     <!-- row -->
@@ -20,10 +20,6 @@
         </div>
         
         <div class="row">
-
-            @foreach ($datas as $data)
-                
-     
             <div class="col-xl-3 col-xxl-4 col-lg-4">
                 <div class="row">
                     <div class="col-lg-12">
@@ -79,16 +75,8 @@
                 </div>
             </div>
         </div>
-        @endforeach
         
-        {{$datas->links()}}
-        <style>
-        .w-5{
-            display: none;
-            }
-        </style>
     </div>
-    
 </div>
 
 @endsection

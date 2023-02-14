@@ -121,12 +121,24 @@
                     </li>
 
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-pencil"></i>
+                        <i class="la la-balance-scale"></i>
                         <span class="nav-text">Court</span>
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="{{route('pending')}}">Pending</a></li>
                         <li><a href="{{route('cases.status')}}">Case Status In Court</a></li>
+                    </ul>
+
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-bar-chart-o"></i>
+                        <span class="nav-text">Reports</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="{{route('General-records')}}">General case Report</a></li>
+                        <li><a href="{{route('officer-records')}}">Officer Report </a></li>
+                        <li><a href="{{route('year-case-report')}}">Case Report in Years</a></li>
+                        
+                        {{-- <li><a href="{{route('case-in-courts')}}">Cases in court Report</a></li> --}}
                     </ul>
                 </li>
 				</ul>

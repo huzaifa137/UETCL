@@ -1,4 +1,4 @@
-﻿@extends('layouts.header_footer_navbar')
+@extends('layouts.header_footer_navbar')
 @section('content')
 <div class="content-body">
 	<!-- row -->
@@ -11,14 +11,14 @@
 		<div class="row page-titles mx-0">
 			<div class="col-sm-6 p-md-0">
 				<div class="welcome-text">
-					<h4>All Record Cases</h4>
+					<h4>All Year Cases Report</h4>
 				</div>
 			</div>
 			<div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-					<li class="breadcrumb-item active"><a href="javascript:void(0);">Record</a></li>
-					<li class="breadcrumb-item active"><a href="javascript:void(0);">All Cases</a></li>
+					<li class="breadcrumb-item active"><a href="javascript:void(0);">Year Cases</a></li>
+					<li class="breadcrumb-item active"><a href="javascript:void(0);">Download Report</a></li>
 				</ol>
 			</div>
 		</div>
@@ -30,8 +30,8 @@
 					<div id="list-view" class="tab-pane fade active show col-lg-12">
 						<div class="card">
 							<div class="card-header">
-								<h4 class="card-title">All Cases  </h4>
-								<a href="{{route('AddBook')}}" class="btn btn-primary">+ Add new</a>
+								<h4 class="card-title">All Year Cases Report</h4>
+								<a href="{{route('year-generator')}}" class="btn btn-primary"> <i class="la la-download"></i> <span>&nbsp </span> Download Year Report</a>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
@@ -45,7 +45,7 @@
 												<th>Transmission line</th>
 												<th>Case Status</th>
 												<th>Date</th>
-												<th>Action</th>
+												{{-- <th>Action</th> --}}
 											</tr>
 										</thead>
 										<tbody>
@@ -59,12 +59,12 @@
 												<td>{{$info->Case_Status}}</td>
 												<td>{{$info->Date}}</td>
 												
-												<td>
-													<a href="{{'Edit/'.$info->id}}" class="btn btn-sm btn-primary" onclick="return confirm('Are you sure you want to edit this case ?')"><i class="la la-pencil"></i></a>
+												{{-- <td> --}}
+													{{-- <a href="{{'Edit/'.$info->id}}" class="btn btn-sm btn-primary" onclick="return confirm('Are you sure you want to edit this case ?')"><i class="la la-pencil"></i></a>
 													<a href="{{'delete/'.$info->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this case ?')"><i class="la la-trash-o"></i></a>
-													<a href="{{'details/'}}" class="btn btn-sm btn-success"><i class="la la-eye"></i></a>
+													<a href="{{'details/'}}" class="btn btn-sm btn-success"><i class="la la-eye"></i></a> --}}
 													{{-- <a href="{{'details/'.$info->id}}" class="btn btn-sm btn-warning"><i class="la la-eye"></i></a> --}}
-												</td>												
+												{{-- </td>												 --}}
 											</tr>
 											@endforeach
 										</tbody>

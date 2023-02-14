@@ -24,7 +24,7 @@ use App\Http\Controllers\Master;
         Route::get('deleteOfficer/{id}',[Master::class,'delete_officer']);
         Route::get('Edit/{id}',[Master::class,'updateRecord']);
         Route::get('EditOfficer/{id}',[Master::class,'update_Officer_Record']);
-        Route::get('details/{id}',[Master::class,'details'])->name('case.details');
+        Route::get('details/{id}',[Master::class,'details1'])->name('case.details');
         Route::get('auth.logout',[Master::class,'logout'])->name('auth.logout');
         Route::get('AddRecord',[Master::class,'AddRecord'])->name('AddBook');
         Route::get('Pending',[Master::class,'Pending_records'])->name('pending');
@@ -32,8 +32,16 @@ use App\Http\Controllers\Master;
         Route::get('cases.status',[Master::class,'court_case_status'])->name('cases.status');
         Route::view('EditBook','Adminpages.EditBook')->name('EditBook');
         Route::view('AddOfficer','Adminpages.AddOfficer')->name('AddOfficer');
+        Route::get('details',[Master::class,'details']);
+        
     });
-    
+    Route::get('General-records',[Master::class,'general_records'])->name('General-records');
+    Route::get('officer-records',[Master::class,'officerReportrecords'])->name('officer-records');
+    Route::get('case-in-courts',[Master::class,'case_in_courts'])->name('case-in-courts');
+    Route::get('year-case-report',[Master::class,'year_case_report'])->name('year-case-report');
+    Route::get('pdf-generator',[Master::class,'generator'])->name('pdf-generator');
+    Route::get('year-generator',[Master::class,'year_report_download'])->name('year-generator');
+    Route::get('officer-generator',[Master::class,'officer_report_download'])->name('officer-generator');
     
     Route::post('admin.add',[Master::class,'Add_Admin'])->name('admin.add');
     Route::post('admin.login',[Master::class,'Admin_login'])->name('admin.login');
@@ -42,5 +50,5 @@ use App\Http\Controllers\Master;
     Route::post('add.officer',[Master::class,'Add_officer'])->name('add.officer');
     Route::post('update.officer',[Master::class,'update_officer'])->name('update.officer');
     Route::post('update.status',[Master::class,'update_status'])->name('update.status');
-
-    
+    Route::post('custom-search',[Master::class,'custom_year_search'])->name('custom-search');
+      

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use App\Models\register;
 use App\Models\court;
 use App\Models\officer;
 use App\Models\admin;
-
+use App;
 
 class Master extends Controller
 {
@@ -165,7 +167,7 @@ class Master extends Controller
             $data = register::find($id);
             $data->delete();
 
-            return redirect()->back()->with('success','Case has been deleted successfully');;
+            return redirect()->back()->with('success','Case has been deleted successfully');
         }
 
         public function update(Request $request)
@@ -218,12 +220,17 @@ class Master extends Controller
         }
 
 
-        public function details($id,Request $request)
+        public function details1($id,Request $request)
         {
              $data = register::find($id);
-             return view('Adminpages.BookDetails',compact('data',$data));
+             return view('Adminpages.onerecord',compact('data',$data));
         }
 
+        public function details()
+        {
+             $datas = DB::table('registers')->paginate(1);
+             return view('Adminpages.BookDetails',compact('datas',$datas));
+        }
         public function Add_officer(Request $request)
         {
             $request->validate([
@@ -351,5 +358,81 @@ class Master extends Controller
             $data = court::all();
 
             return view('Adminpages.CourtStatus',compact('data',$data));
+        }
+
+        public function generator()
+        {
+            $data = register::all();
+            $pdf = Pdf::loadView('Adminpages.records',compact('data'));
+            return $pdf->download('generalcasereport.pdf');
+        }
+
+        
+
+        // public function details1($id,Request $request)
+        // {
+        //      $data = register::find($id);
+        //      return view('Adminpages.onerecord',compact('data',$data));
+        // }
+
+        public function officer_report_download()
+        {
+            $data = officer::all();
+            $pdf = Pdf::loadView('Adminpages.record2',compact('data'));
+            return $pdf->download('OfficerReport.pdf');
+        }
+
+        public function records()
+        {
+            return view('Adminpages.records');
+        }
+
+        public function general_records()
+        {
+            $data = register::all();
+            return view('Adminpages.GeneralCaseRecords',compact($data,'data'));
+        }
+
+        public function officerReportrecords()
+        {
+
+            $data = officer::all();
+            return view('Adminpages.OfficerReportRecords',compact('data',$data));
+        }
+
+        public function case_in_courts()
+        {
+            $data = court::all();
+            return view('Adminpages.CourtReport',compact('data',$data));
+        }
+
+        public function year_case_report()
+        {
+            return view('Adminpages.YearCaseReport');
+        }
+
+        public function custom_year_search(Request $request)
+        {
+             $keyword =  $request->year;
+
+             $date = new Carbon( $keyword); 
+             $value = $date->year;
+
+              $data = DB::table('registers')
+                ->where('Date', '>=',$value.'01'.'01' )
+                ->where('Date', '<=', $value.'12'.'31')
+                ->get();
+
+                
+            return view('Adminpages.CaseReportRecords',compact(['data','value']));
+        }
+
+        public function year_report_download()
+        {
+
+            $data = register::all();
+
+            $pdf = Pdf::loadView('Adminpages.record1',compact('data'));
+            return $pdf->download('annualcasereport.pdf');
         }
 }
