@@ -42,7 +42,7 @@
 												<th>Lastname</th>
 												<th>Role</th>
 												<th>Department</th>
-												<th>Edit</th>
+												<th>Action</th>
 											</tr>
 										</thead>
 										<tbody>

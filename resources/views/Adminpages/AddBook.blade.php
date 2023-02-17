@@ -60,7 +60,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label" style="color:black;">Police Case Ref</label>
-                                        <input type="number" name="Police_Case_Ref" class="form-control" value="{{old('Police_Case_Ref')}}">
+                                        <input type="text" name="Police_Case_Ref" class="form-control" value="{{old('Police_Case_Ref')}}">
                                         <span style="color: red"> @error('Police_Case_Ref'){{$message}} @enderror</span>
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label" style="color:black;">Inter Ref Number</label>
-                                        <input type="number" name="Inter_Ref_Number" class="form-control" value="{{old('Inter_Ref_Number')}}">
+                                        <input type="text" name="Inter_Ref_Number" class="form-control" value="{{old('Inter_Ref_Number')}}">
                                         <span style="color: red"> @error('Inter_Ref_Number'){{$message}} @enderror</span>
                                     </div>
                                 </div>

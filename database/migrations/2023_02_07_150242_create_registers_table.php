@@ -17,8 +17,8 @@ class CreateRegistersTable extends Migration
             $table->id();
             $table->text('police_station');
             $table->text('investigation_officer');
-            $table->bigInteger('police_case_ref');
-            $table->bigInteger('Inter_ref_number');
+            $table->text('police_case_ref');
+            $table->text('Inter_ref_number');
             $table->text('Transmission_Line');
             $table->text('Case_Status');
             $table->text('particulars_of_the_case');

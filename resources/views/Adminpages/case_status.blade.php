@@ -54,7 +54,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label" style="color:black;">Police station case Ref </label>
-                                        <input type="number" name="Police_station_case_Ref" class="form-control" value="{{$info->police_case_ref}}">
+                                        <input type="text" name="Police_station_case_Ref" class="form-control" value="{{$info->police_case_ref}}">
                                         <span style="color: red"> @error('Police_station_case_Ref'){{$message}} @enderror</span>
                                     </div>
                                 </div>

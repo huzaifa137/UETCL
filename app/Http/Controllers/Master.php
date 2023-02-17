@@ -201,7 +201,7 @@ class Master extends Controller
 
             if($save)
             {   
-                return redirect()->back()->with('success','Book has been Updated successfully');
+                return redirect()->back()->with('success','Record has been Updated successfully');
             }
             
         }
@@ -228,7 +228,7 @@ class Master extends Controller
 
         public function details()
         {
-             $datas = DB::table('registers')->paginate(1);
+             $datas = DB::table('registers')->Simplepaginate(1);
              return view('Adminpages.BookDetails',compact('datas',$datas));
         }
         public function Add_officer(Request $request)
@@ -367,14 +367,6 @@ class Master extends Controller
             return $pdf->download('generalcasereport.pdf');
         }
 
-        
-
-        // public function details1($id,Request $request)
-        // {
-        //      $data = register::find($id);
-        //      return view('Adminpages.onerecord',compact('data',$data));
-        // }
-
         public function officer_report_download()
         {
             $data = officer::all();
@@ -423,16 +415,24 @@ class Master extends Controller
                 ->where('Date', '<=', $value.'12'.'31')
                 ->get();
 
+                 
+            $this->year_report_download($value);
                 
             return view('Adminpages.CaseReportRecords',compact(['data','value']));
         }
 
-        public function year_report_download()
+        public function year_report_download($value)
         {
 
-            $data = register::all();
+              $value;
+             
+              $data = DB::table('registers')
+             ->where('Date', '>=',$value.'01'.'01' )
+             ->where('Date', '<=', $value.'12'.'31')
+             ->get();
 
+    
             $pdf = Pdf::loadView('Adminpages.record1',compact('data'));
-            return $pdf->download('annualcasereport.pdf');
+            return $pdf->download('Annualcasereport.pdf');
         }
 }

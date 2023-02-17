@@ -40,7 +40,7 @@ use App\Http\Controllers\Master;
     Route::get('case-in-courts',[Master::class,'case_in_courts'])->name('case-in-courts');
     Route::get('year-case-report',[Master::class,'year_case_report'])->name('year-case-report');
     Route::get('pdf-generator',[Master::class,'generator'])->name('pdf-generator');
-    Route::get('year-generator',[Master::class,'year_report_download'])->name('year-generator');
+    Route::get('year-generator/{id}',[Master::class,'year_report_download'])->name('year-generator/{id}');
     Route::get('officer-generator',[Master::class,'officer_report_download'])->name('officer-generator');
     
     Route::post('admin.add',[Master::class,'Add_Admin'])->name('admin.add');

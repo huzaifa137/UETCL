@@ -31,7 +31,7 @@
 						<div class="card">
 							<div class="card-header">
 								<h4 class="card-title">All Year Cases Report</h4>
-								<a href="{{route('year-generator')}}" class="btn btn-primary"> <i class="la la-download"></i> <span>&nbsp </span> Download Year Report</a>
+								<a href="{{'year-generator/'.$value}}" class="btn btn-primary"> <i class="la la-download"></i> <span>&nbsp </span> Download Year Report</a>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
