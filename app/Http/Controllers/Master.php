@@ -159,7 +159,7 @@ class Master extends Controller
         {
              $data = register::all();
 
-             return view('Adminpages.AllBooks',compact($data,'data'));
+             return view('Adminpages.AllBooks',compact(['data']));
         }
 
         public function delete($id)
@@ -209,7 +209,7 @@ class Master extends Controller
         public function AddRecord()
         {
             $officers = officer::all();
-            return view('Adminpages.AddBook',compact('officers',$officers));
+            return view('Adminpages.AddBook',compact(['officers']));
         }
         public function updateRecord($id,Request $request)
         {
@@ -223,13 +223,13 @@ class Master extends Controller
         public function details1($id,Request $request)
         {
              $data = register::find($id);
-             return view('Adminpages.onerecord',compact('data',$data));
+             return view('Adminpages.onerecord',compact(['data']));
         }
 
         public function details()
         {
              $datas = DB::table('registers')->Simplepaginate(1);
-             return view('Adminpages.BookDetails',compact('datas',$datas));
+             return view('Adminpages.BookDetails',compact(['datas']));
         }
         public function Add_officer(Request $request)
         {
@@ -257,7 +257,7 @@ class Master extends Controller
         public function Officer_records()
         {
             $data = officer::all();
-             return view('Adminpages.AllOfficers',compact('data',$data));
+             return view('Adminpages.AllOfficers',compact(['data']));
         }
 
         public function delete_officer($id)
@@ -296,19 +296,19 @@ class Master extends Controller
         {
              $info = officer::find($id);
              
-             return view('Adminpages.EditOfficer',compact('info',$info));
+             return view('Adminpages.EditOfficer',compact(['info']));
         }
 
         public function Pending_records()
         {
             $pendings = register::where('Case_Status','court')->get();
-            return view('Adminpages.pending',compact('pendings',$pendings));
+            return view('Adminpages.pending',compact(['pendings']));
         }
 
         public function Update_case_status($id,Request $request)
         {   
             $info = register::find($id);
-            return view('Adminpages.case_status',compact('info',$info));
+            return view('Adminpages.case_status',compact(['info']));
         }
 
         public function update_status(Request $request)
@@ -357,20 +357,20 @@ class Master extends Controller
         {
             $data = court::all();
 
-            return view('Adminpages.CourtStatus',compact('data',$data));
+            return view('Adminpages.CourtStatus',compact(['data']));
         }
 
         public function generator()
         {
             $data = register::all();
-            $pdf = Pdf::loadView('Adminpages.records',compact('data'));
+            $pdf = Pdf::loadView('Adminpages.records',compact(['data']));
             return $pdf->download('generalcasereport.pdf');
         }
 
         public function officer_report_download()
         {
             $data = officer::all();
-            $pdf = Pdf::loadView('Adminpages.record2',compact('data'));
+            $pdf = Pdf::loadView('Adminpages.record2',compact(['data']));
             return $pdf->download('OfficerReport.pdf');
         }
 
@@ -382,20 +382,20 @@ class Master extends Controller
         public function general_records()
         {
             $data = register::all();
-            return view('Adminpages.GeneralCaseRecords',compact($data,'data'));
+            return view('Adminpages.GeneralCaseRecords',compact(['data']));
         }
 
         public function officerReportrecords()
         {
 
             $data = officer::all();
-            return view('Adminpages.OfficerReportRecords',compact('data',$data));
+            return view('Adminpages.OfficerReportRecords',compact(['data']));
         }
 
         public function case_in_courts()
         {
             $data = court::all();
-            return view('Adminpages.CourtReport',compact('data',$data));
+            return view('Adminpages.CourtReport',compact(['data']));
         }
 
         public function year_case_report()
@@ -432,7 +432,7 @@ class Master extends Controller
              ->get();
 
     
-            $pdf = Pdf::loadView('Adminpages.record1',compact('data'));
+            $pdf = Pdf::loadView('Adminpages.record1',compact(['data']));
             return $pdf->download('Annualcasereport.pdf');
         }
 }
