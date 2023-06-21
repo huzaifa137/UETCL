@@ -219,18 +219,12 @@ class Master extends Controller
               return view('Adminpages.EditBook',compact(['info','officers']));
         }
 
-
         public function details1($id,Request $request)
         {
              $data = register::find($id);
              return view('Adminpages.onerecord',compact(['data']));
         }
 
-        public function details()
-        {
-             $datas = DB::table('registers')->Simplepaginate(1);
-             return view('Adminpages.BookDetails',compact(['datas']));
-        }
         public function Add_officer(Request $request)
         {
             $request->validate([
@@ -356,7 +350,6 @@ class Master extends Controller
         public function court_case_status()
         {
             $data = court::all();
-
             return view('Adminpages.CourtStatus',compact(['data']));
         }
 
@@ -366,6 +359,8 @@ class Master extends Controller
             $pdf = Pdf::loadView('Adminpages.records',compact(['data']));
             return $pdf->download('generalcasereport.pdf');
         }
+
+       
 
         public function officer_report_download()
         {
@@ -432,7 +427,46 @@ class Master extends Controller
              ->get();
 
     
-            $pdf = Pdf::loadView('Adminpages.record1',compact(['data']));
+             $pdf = Pdf::loadView('Adminpages.record1',compact(['data']));
             return $pdf->download('Annualcasereport.pdf');
         }
+
+        public function details()
+        {
+             $datas = DB::table('registers')->Simplepaginate(1);
+
+             $datas = DB::table('registers')->Simplepaginate(1);
+
+              foreach ($datas as $val) {
+                $value=$val->id;
+                }
+
+              $this->IndividualGenerator($value);
+              return view('Adminpages.BookDetails',compact(['datas','value']));
+
+
+            //  return view('Adminpages.BookDetails',compact(['datas']));
+        }
+
+
+         // Modified Documents
+
+         public function dummy()
+         {
+              $datas = DB::table('registers')->Simplepaginate(1);
+
+              foreach ($datas as $val) {
+                $value=$val->id;
+                }
+
+              $this->IndividualGenerator($value);
+              return view('Adminpages.dummy',compact(['datas','value']));
+         }
+ 
+         public function IndividualGenerator($value)
+         {
+             $data = register::find($value);
+             $pdf = Pdf::loadView('Adminpages.record3',compact(['data']));
+             return $pdf->download('IndividualCaseDetails.pdf');
+         }
 }

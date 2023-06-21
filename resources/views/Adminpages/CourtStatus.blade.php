@@ -46,7 +46,6 @@
                                                 <th>EVIDENCE ON RECORD</th>
                                                 <th>CASE FACILITATION</th>
                                                 <th>STATUS</th>
-												{{-- <th>Edit</th> --}}
 											</tr>
 										</thead>
 										<tbody>
@@ -62,11 +61,6 @@
 												<td>{{$info->Evidence_on_Record}}</td>
                                                 <td>{{$info->Case_facilitation}}</td>
                                                 <td>{{$info->Status}}</td>
-												{{-- <td>
-													<a href="{{'Edit/'.$info->id}}" class="btn btn-sm btn-primary" onclick="return confirm('Are you sure you want to edit this case ?')"><i class="la la-pencil"></i></a>
-													<a href="{{'delete/'.$info->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this case ?')"><i class="la la-trash-o"></i></a>
-													<a href="{{'details/'.$info->id}}" class="btn btn-sm btn-success"><i class="la la-eye"></i></a>
-												</td>												 --}}
 											</tr>
 											@endforeach
 										</tbody>

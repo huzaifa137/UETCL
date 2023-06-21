@@ -46,7 +46,7 @@
 										</thead>
 										<tbody>
 											@foreach ($data as $info)
-											<tr>
+											<tr >
 												<td>{{$info->Firstname}}</td>
 												<td>{{$info->Lastname}}</td>
 												<td>{{$info->Role}}</td>

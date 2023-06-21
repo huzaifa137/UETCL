@@ -56,20 +56,22 @@
                         <div class="profile-tab">
                             <div class="custom-tab-1">
                                 <ul class="nav nav-tabs">
-                                    <li class="nav-item"><a href="#about-me" data-toggle="tab" class="nav-link active show">particulars of the case</a></li>
+                                    <li class="nav-item "><a href="#about-me" data-toggle="tab" class="nav-link active show">particulars of the case</a></li>
+                                    <a href="{{url('individual-generator/'.$value)}} " class="btn btn-primary ml-auto"> <i class="la la-download"></i> <span>&nbsp </span> Download Particular Case Record</a>
+
                                 </ul>
+                                
                                 <div class="tab-content">
                                     <div id="about-me" class="tab-pane fade active show">
                                         <div class="profile-about-me">
                                             <div class="pt-4 border-bottom-1 pb-4">
-                                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence was created for the bliss of souls like mine.I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</p>
+                                                <p>{{$data->particulars_of_the_case	}}</p>
                                             </div>
                                         </div>
                                         <div class="profile-skills pt-2 border-bottom-1 pb-2">
                                             <h4 class="text-primary mb-4">Brief facts of the case</h4>
-                                            <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence was created for the bliss of souls like mine.I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</p>
+                                            <p>{{$data->Brief_facts_of_the_case	}}</p>
                                         </div>
-                                       
                                     </div>
                                     
                                 </div>

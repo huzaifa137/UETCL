@@ -6,6 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Home</title>
+    <style>
+      td{
+          color: green;
+          text-align: center;
+      }
+      th{
+          text-align: center;
+      }
+
+      tr{
+        border-bottom:1px solid black;
+      }
+  </style>
+
 </head>
 <body>
 
@@ -17,9 +31,9 @@
         <th>Police Station</th>
         <th>Investigation Officer</th>
         <th>Police Case Reference</th>
-        <th>Inter Ref Number</th>
         <th>Transmission line</th>
         <th>Case Status</th>
+        <th>Inter Ref Number</th>
         <th>Year</th>
       </tr>
     </thead>
@@ -29,9 +43,9 @@
         <td>{{$info->police_station}}</td>
         <td>{{$info->investigation_officer}}</td>
         <td>{{$info->police_case_ref}}</td>
-        <td>{{$info->Inter_ref_number}}</td>
         <td>{{$info->Transmission_Line}}</td>
         <td>{{$info->Case_Status}}</td>
+        <td>{{$info->Inter_ref_number}}</td>
         <td>{{$info->Date}}</td>
       </tr>
       @endforeach

@@ -63,7 +63,6 @@
 													<a href="{{'Edit/'.$info->id}}" class="btn btn-sm btn-primary" onclick="return confirm('Are you sure you want to edit this case ?')"><i class="la la-pencil"></i></a>
 													<a href="{{'delete/'.$info->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this case ?')"><i class="la la-trash-o"></i></a>
 													<a href="{{'details/'}}" class="btn btn-sm btn-success"><i class="la la-eye"></i></a>
-													{{-- <a href="{{'details/'.$info->id}}" class="btn btn-sm btn-warning"><i class="la la-eye"></i></a> --}}
 												</td>												
 											</tr>
 											@endforeach
