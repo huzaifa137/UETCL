@@ -213,10 +213,11 @@ class Master extends Controller
         }
         public function updateRecord($id,Request $request)
         {
-              $info = register::find($id);
-              $officers = officer::all();
+                
+               $info = register::find($id);
+               $officers = officer::all();
 
-              return view('Adminpages.EditBook',compact(['info','officers']));
+               return view('Adminpages.EditBook',compact(['info','officers']));
         }
 
         public function details1($id,Request $request)
@@ -433,8 +434,7 @@ class Master extends Controller
 
         public function details()
         {
-             $datas = DB::table('registers')->Simplepaginate(1);
-
+            
              $datas = DB::table('registers')->Simplepaginate(1);
 
               foreach ($datas as $val) {
@@ -444,8 +444,6 @@ class Master extends Controller
               $this->IndividualGenerator($value);
               return view('Adminpages.BookDetails',compact(['datas','value']));
 
-
-            //  return view('Adminpages.BookDetails',compact(['datas']));
         }
 
 

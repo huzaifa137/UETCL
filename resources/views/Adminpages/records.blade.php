@@ -8,7 +8,7 @@
     <title>Home</title>
     <style>
       td{
-          /* color: green; */
+          color: green;
           text-align: center;
       }
       th{

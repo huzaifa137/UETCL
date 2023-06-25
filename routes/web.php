@@ -35,6 +35,7 @@ use App\Http\Controllers\Master;
         Route::get('details',[Master::class,'details']);
         
     });
+    
     Route::get('General-records',[Master::class,'general_records'])->name('General-records');
     Route::get('officer-records',[Master::class,'officerReportrecords'])->name('officer-records');
     Route::get('case-in-courts',[Master::class,'case_in_courts'])->name('case-in-courts');

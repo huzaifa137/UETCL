@@ -49,8 +49,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label" style="color:black;">Investigation officer</label>
-                                        <select class="form-control" name="Investigation_officer" value="{{old('Investigation_officer')}}">
-                                            <option value="">Select Officer</option>
+                                        <select class="form-control" name="Investigation_officer" value="{{old('Investigation_officer')}}" required>
                                             @foreach ($officers as $officer)
                                             <option value="{{$officer->Firstname}}">{{$data=$officer->Firstname}}</option>
                                             @endforeach
@@ -103,7 +102,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label" style="color:black;">particulars of the case</label>
-                                        <textarea class="form-control" rows="5" name="particulars_of_the_case"></textarea>
+                                        <textarea class="form-control" rows="5" name="particulars_of_the_case">{{$info->particulars_of_the_case}}</textarea>
                                         <span style="color: red"> @error('particulars_of_the_case'){{$message}} @enderror</span>
                                     </div>
                                 </div>
@@ -111,7 +110,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label class="form-label" style="color:black;">Brief facts of the case</label>
-                                        <textarea class="form-control" rows="5" name="Brief_facts_of_the_case"></textarea>
+                                        <textarea class="form-control" rows="5" name="Brief_facts_of_the_case">{{$info->Brief_facts_of_the_case}}</textarea>
                                         <span style="color: red"> @error('Brief_facts_of_the_case'){{$message}} @enderror</span>
                                     </div>
                                 </div>
